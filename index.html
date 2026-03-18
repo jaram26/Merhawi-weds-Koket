@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merhawi & Koket — April 19, 2026</title>
+  <meta name="description" content="Join us in celebrating the wedding of Merhawi Girma and Koket Mesfin — April 19, 2026" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <span class="loader-initials">M & K</span>
+      <div class="loader-floral"></div>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Music Toggle -->
+  <button id="musicToggle" class="music-toggle" aria-label="Toggle music">
+    <span class="music-icon">♪</span>
+    <span class="music-label">Music</span>
+  </button>
+  <audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Floating Hearts -->
+  <div class="floating-hearts" aria-hidden="true">
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="petal">🌸</span>
+    <span class="petal">🌷</span>
+    <span class="petal">✨</span>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">M & K</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#couple">Bride & Groom</a></li>
+        <li><a href="#details">Details</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#verses">Blessings</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+        <li><a href="#gifts">Gifts</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80" alt="Romantic wedding" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-pre">We're Getting Married</p>
+        <h1 class="hero-names">Merhawi <span class="heart-char">❤</span> Koket</h1>
+        <p class="hero-date">April 19, 2026</p>
+        <p class="hero-tagline">Two souls, one journey, forever</p>
+        <div id="countdown" class="countdown">
+          <div class="countdown-item"><span id="days">0</span><small>Days</small></div>
+          <div class="countdown-item"><span id="hours">0</span><small>Hours</small></div>
+          <div class="countdown-item"><span id="minutes">0</span><small>Minutes</small></div>
+          <div class="countdown-item"><span id="seconds">0</span><small>Seconds</small></div>
+        </div>
+        <a href="#story" class="scroll-indicator">
+          <span>Scroll down</span>
+          <span class="scroll-arrow" aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section id="story" class="section section-story">
+      <div class="container">
+        <h2 class="section-title script">Our Story</h2>
+        <p class="section-subtitle">Every love story is beautiful, but ours is our favorite</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>How We Met</h3>
+              <p class="timeline-date">The beginning</p>
+              <p>Our paths crossed in the most unexpected way. From the first hello, we knew something special had begun.</p>
+              <div class="timeline-img"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80" alt="How we met" /></div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>First Date</h3>
+              <p class="timeline-date">A night to remember</p>
+              <p>Coffee turned into dinner, dinner into endless conversation. We didn't want the night to end.</p>
+              <div class="timeline-img"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80" alt="First date" /></div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>The Proposal</h3>
+              <p class="timeline-date">Yes, forever</p>
+              <p>Surrounded by love and our favorite people, he asked the question. She said yes—and we've been planning this day ever since.</p>
+              <div class="timeline-img"><img src="https://images.unsplash.com/photo-1529634801-1c993f1a2a77?w=600&q=80" alt="Proposal" /></div>
+            </div>
+          </div>
+        </div>
+        <blockquote class="bible-quote story-verse">
+          <p>"Therefore what God has joined together, let no one separate."</p>
+          <cite>— Mark 10:9</cite>
+        </blockquote>
+      </div>
+      <div class="section-divider" aria-hidden="true"></div>
+    </section>
+
+    <!-- Bride & Groom -->
+    <section id="couple" class="section section-couple">
+      <div class="ethiopian-border"></div>
+      <div class="container">
+        <h2 class="section-title script">Bride & Groom</h2>
+        <div class="couple-grid">
+          <article class="couple-card groom">
+            <div class="couple-photo">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Merhawi Girma" />
+              <div class="couple-name script">Merhawi</div>
+            </div>
+            <div class="couple-bio">
+              <h3>Merhawi Girma</h3>
+              <p>Groom. Coffee enthusiast, adventure seeker, and Koket's biggest fan. Loves family gatherings, good music, and making her laugh.</p>
+            </div>
+          </article>
+          <div class="couple-heart">❤</div>
+          <article class="couple-card bride">
+            <div class="couple-photo">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80" alt="Koket Mesfin" />
+              <div class="couple-name script">Koket</div>
+            </div>
+            <div class="couple-bio">
+              <h3>Koket Mesfin</h3>
+              <p>Bride. Creative soul, book lover, and Merhawi's forever. Enjoys gardening, cooking together, and quiet evenings at home.</p>
+            </div>
+          </article>
+        </div>
+        <div class="couple-message">
+          <p class="script">A message from us</p>
+          <p>Thank you for being part of our journey. Your presence at our wedding is the greatest gift. We can't wait to celebrate with you!</p>
+        </div>
+      </div>
+      <div class="ethiopian-border bottom"></div>
+    </section>
+
+    <!-- Wedding Details -->
+    <section id="details" class="section section-details">
+      <div class="container">
+        <h2 class="section-title script">Wedding Details</h2>
+        <p class="section-subtitle">April 19, 2026</p>
+        <div class="details-grid">
+          <div class="detail-card ceremony">
+            <div class="detail-icon">⛪</div>
+            <h3>Ceremony</h3>
+            <p class="detail-time">4:00 PM</p>
+            <p>Join us as we exchange vows and begin our journey as husband and wife.</p>
+          </div>
+          <div class="detail-card reception">
+            <div class="detail-icon">🎉</div>
+            <h3>Reception</h3>
+            <p class="detail-time">6:00 PM</p>
+            <p>Dinner, dancing, and celebration to follow at the same venue.</p>
+          </div>
+        </div>
+        <div class="venue-block">
+          <h3>Venue</h3>
+          <p class="venue-name">Sheger Feleke Wedding Hall</p>
+          <p class="venue-address">Gotera, Right to Nefas Silk Polytechnic College</p>
+          <a class="venue-map-link" href="https://maps.app.goo.gl/FAK6T4YXjXzydpFm8" target="_blank" rel="noopener noreferrer" title="Open in Google Maps">
+            <span class="venue-map-label">View on Google Maps</span>
+            <div class="venue-map" id="venueMap">
+              <iframe src="https://www.google.com/maps?q=Sheger+Feleke+Wedding+Hall+Gotera+Nefas+Silk+Polytechnic&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Wedding venue location"></iframe>
+            </div>
+          </a>
+        </div>
+        <div class="dress-code">
+          <h3>Dress Code</h3>
+          <p>Semi-formal / Smart casual. Soft colors and garden-party elegance welcome.</p>
+        </div>
+        <div class="schedule">
+          <h3>Schedule</h3>
+          <ul class="schedule-list">
+            <li><span class="time">3:30 PM</span> <span>Guest arrival</span></li>
+            <li><span class="time">4:00 PM</span> <span>Ceremony begins</span></li>
+            <li><span class="time">5:30 PM</span> <span>Cocktail hour</span></li>
+            <li><span class="time">6:00 PM</span> <span>Reception & dinner</span></li>
+            <li><span class="time">8:00 PM</span> <span>Dancing & celebration</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section section-gallery">
+      <div class="container">
+        <h2 class="section-title script">Gallery</h2>
+        <p class="section-subtitle">Our moments together</p>
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1529634801-1c993f1a2a77?w=800&q=80"><img src="https://images.unsplash.com/photo-1529634801-1c993f1a2a77?w=400&q=80" alt="Engagement 1" /></div>
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Engagement 2" /></div>
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80" alt="Engagement 3" /></div>
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=80" alt="Engagement 4" /></div>
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1525268323446-0505b6fe7778?w=800&q=80"><img src="https://images.unsplash.com/photo-1525268323446-0505b6fe7778?w=400&q=80" alt="Engagement 5" /></div>
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400&q=80" alt="Engagement 6" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+      <img src="" alt="Gallery" id="lightboxImg" />
+    </div>
+
+    <!-- Bible Verses & Blessings -->
+    <section id="verses" class="section section-verses">
+      <div class="verses-bg"></div>
+      <div class="container">
+        <h2 class="section-title script">Blessings & Verses</h2>
+        <div class="verses-grid">
+          <blockquote class="verse-card">
+            <p>"Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered, it keeps no record of wrongs. Love does not delight in evil but rejoices with the truth. It always protects, always trusts, always hopes, always perseveres."</p>
+            <cite>— 1 Corinthians 13:4–7</cite>
+          </blockquote>
+          <blockquote class="verse-card">
+            <p>"Two are better than one... If either of them falls down, one can help the other up. Though one may be overpowered, two can defend themselves. A cord of three strands is not quickly broken."</p>
+            <cite>— Ecclesiastes 4:9–12</cite>
+          </blockquote>
+          <blockquote class="verse-card">
+            <p>"That is why a man leaves his father and mother and is united to his wife, and they become one flesh."</p>
+            <cite>— Genesis 2:24</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp" class="section section-rsvp">
+      <div class="container">
+        <h2 class="section-title script">RSVP</h2>
+        <p class="section-subtitle">Please let us know if you'll join our celebration</p>
+        <form id="rsvpForm" class="rsvp-form">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name" />
+          </div>
+          <div class="form-group">
+            <label>Attendance *</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="attendance" value="yes" required /> <span>Yes, I'll be there!</span></label>
+              <label class="radio-label"><input type="radio" name="attendance" value="no" /> <span>Sorry, I can't make it</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="guests">Number of guests</label>
+            <input type="number" id="guests" name="guests" min="0" max="20" value="1" placeholder="Including yourself" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message to the couple</label>
+            <textarea id="message" name="message" rows="4" placeholder="Optional wishes or dietary notes..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="rsvpSubmit">
+            <span class="btn-text">Send RSVP</span>
+          </button>
+        </form>
+        <div id="rsvpSuccess" class="rsvp-success" hidden>
+          <span class="success-icon">✓</span>
+          <p>Thank you! Your response has been received.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gifts & Registry -->
+    <section id="gifts" class="section section-gifts">
+      <div class="container">
+        <h2 class="section-title script">Gifts</h2>
+        <p class="gifts-intro">Your presence is the greatest gift. If you wish to honor us with a gift, we welcome contributions toward our future together.</p>
+        <div class="gifts-qr">
+          <div class="qr-placeholder" id="qrPlaceholder">
+            <p>QR Code</p>
+            <p class="qr-hint">Replace with your digital payment / bank transfer QR</p>
+          </div>
+        </div>
+        <p class="gifts-note">Scan for digital gifts or bank transfer details.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-floral"></div>
+      <div class="container">
+        <p class="footer-names script">Merhawi & Koket</p>
+        <p class="footer-date">April 19, 2026</p>
+        <p class="footer-hashtag">#MerhawiWedsKoket</p>
+        <div class="footer-contact">
+          <p>Contact: <a href="mailto:wedding@merahawikoket.com">wedding@merahawikoket.com</a></p>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+        </div>
+        <p class="footer-copy">With love, M & K © 2026</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

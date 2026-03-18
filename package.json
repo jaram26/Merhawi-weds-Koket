@@ -1,0 +1,13 @@
+{
+  "name": "merhawi-koket-wedding",
+  "version": "1.0.0",
+  "description": "Wedding website for Merhawi & Koket",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/serve/build/main.js . -l 3000",
+    "dev": "node node_modules/serve/build/main.js . -l 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
