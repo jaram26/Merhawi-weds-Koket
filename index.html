@@ -65,14 +65,15 @@
     <!-- Hero -->
     <section id="hero" class="hero">
       <div class="hero-bg">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80" alt="Romantic wedding" />
+        <img src="assets/hero-couple.png" alt="Merhawi and Koket" />
         <div class="hero-overlay"></div>
       </div>
       <div class="hero-content">
-        <p class="hero-pre">We're Getting Married</p>
+        <p class="hero-married">We're Getting Married</p>
         <h1 class="hero-names">Merhawi <span class="heart-char">❤</span> Koket</h1>
         <p class="hero-date">April 19, 2026</p>
         <p class="hero-tagline">Two souls, one journey, forever</p>
+        <p class="hero-verse">"I found the one my soul loves." <cite>— Song of Solomon 3:4</cite></p>
         <div id="countdown" class="countdown">
           <div class="countdown-item"><span id="days">0</span><small>Days</small></div>
           <div class="countdown-item"><span id="hours">0</span><small>Hours</small></div>
@@ -90,6 +91,7 @@
     <section id="story" class="section section-story">
       <div class="container">
         <h2 class="section-title script">Our Story</h2>
+        <p class="section-subtitle story-tagline">A love that bloomed.</p>
         <p class="section-subtitle">Every love story is beautiful, but ours is our favorite</p>
         <div class="timeline">
           <div class="timeline-item">
@@ -167,6 +169,7 @@
     <!-- Wedding Details -->
     <section id="details" class="section section-details">
       <div class="container">
+        <p class="invitation-line">You're invited to our most special day.</p>
         <h2 class="section-title script">Wedding Details</h2>
         <p class="section-subtitle">April 19, 2026</p>
         <div class="details-grid">
@@ -187,12 +190,17 @@
           <h3>Venue</h3>
           <p class="venue-name">Sheger Feleke Wedding Hall</p>
           <p class="venue-address">Gotera, Right to Nefas Silk Polytechnic College</p>
-          <a class="venue-map-link" href="https://maps.app.goo.gl/FAK6T4YXjXzydpFm8" target="_blank" rel="noopener noreferrer" title="Open in Google Maps">
-            <span class="venue-map-label">View on Google Maps</span>
-            <div class="venue-map" id="venueMap">
-              <iframe src="https://www.google.com/maps?q=Sheger+Feleke+Wedding+Hall+Gotera+Nefas+Silk+Polytechnic&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Wedding venue location"></iframe>
-            </div>
+          <a class="venue-directions-btn" href="https://maps.app.goo.gl/FAK6T4YXjXzydpFm8" target="_blank" rel="noopener noreferrer" title="Get directions on Google Maps">
+            Get directions
           </a>
+          <div class="venue-map-wrap">
+            <a class="venue-map-link" href="https://maps.app.goo.gl/FAK6T4YXjXzydpFm8" target="_blank" rel="noopener noreferrer" title="Open in Google Maps to get directions">
+              <div class="venue-map" id="venueMap">
+                <iframe src="https://www.google.com/maps?q=Sheger+Feleke+Wedding+Hall+Gotera+Nefas+Silk+Polytechnic+College&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Wedding venue – click to open in Google Maps for directions"></iframe>
+              </div>
+              <span class="venue-map-overlay">Click to open in Google Maps for directions</span>
+            </a>
+          </div>
         </div>
         <div class="dress-code">
           <h3>Dress Code</h3>
@@ -239,6 +247,11 @@
       <div class="container">
         <h2 class="section-title script">Blessings & Verses</h2>
         <div class="verses-grid">
+          <blockquote class="verse-card verse-featured">
+            <p>"I found the one my soul loves; I held her strong in my arms."</p>
+            <p class="verse-personal">My forever and always, my best friend and my gift from God—I love you so much.</p>
+            <cite>— Song of Solomon 3:4</cite>
+          </blockquote>
           <blockquote class="verse-card">
             <p>"Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered, it keeps no record of wrongs. Love does not delight in evil but rejoices with the truth. It always protects, always trusts, always hopes, always perseveres."</p>
             <cite>— 1 Corinthians 13:4–7</cite>
@@ -260,6 +273,11 @@
       <div class="container">
         <h2 class="section-title script">RSVP</h2>
         <p class="section-subtitle">Please let us know if you'll join our celebration</p>
+        <p class="rsvp-hope">We hope to see you there!</p>
+        <div class="rsvp-external">
+          <p>Prefer to RSVP online?</p>
+          <a href="https://rsvp.online/vccehz" target="_blank" rel="noopener noreferrer" class="rsvp-link">RSVP at rsvp.online →</a>
+        </div>
         <form id="rsvpForm" class="rsvp-form">
           <div class="form-group">
             <label for="name">Name *</label>
@@ -306,6 +324,20 @@
       </div>
     </section>
 
+    <!-- Terms & Privacy (optional content) -->
+    <section id="terms" class="section section-legal">
+      <div class="container container-narrow">
+        <h2 class="section-title script">Terms &amp; Support</h2>
+        <p>This wedding website is for the celebration of Merhawi &amp; Koket. For questions or support regarding your invitation or the event, please contact us at <a href="mailto:wedding@merahawikoket.com">wedding@merahawikoket.com</a>.</p>
+      </div>
+    </section>
+    <section id="privacy" class="section section-legal">
+      <div class="container container-narrow">
+        <h2 class="section-title script">Privacy Policy</h2>
+        <p>Any personal data you provide (e.g. via RSVP) is used only for wedding planning and will not be shared with third parties. We respect your privacy.</p>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-floral"></div>
@@ -319,6 +351,11 @@
         <div class="footer-social">
           <a href="#" aria-label="Instagram">Instagram</a>
           <a href="#" aria-label="Facebook">Facebook</a>
+        </div>
+        <div class="footer-legal">
+          <a href="#terms">Terms &amp; Support</a>
+          <span class="footer-legal-sep">·</span>
+          <a href="#privacy">Privacy Policy</a>
         </div>
         <p class="footer-copy">With love, M & K © 2026</p>
       </div>
