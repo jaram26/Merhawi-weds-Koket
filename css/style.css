@@ -141,31 +141,28 @@ body {
 @keyframes loaderSpin { to { transform: rotate(360deg); } }
 @keyframes loaderBar { 0% { transform: translateX(-100%); } 100% { transform: translateX(250%); } }
 
-/* ========== Music toggle ========== */
+/* ========== Music toggle (in nav) ========== */
 .music-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1000;
   display: flex;
   align-items: center;
-  gap: 0.35rem;
-  background: rgba(255,255,255,0.9);
-  border: 1px solid var(--blush);
+  gap: 0.3rem;
+  padding: 0.4rem 0.75rem;
+  background: transparent;
+  border: 1px solid rgba(201, 162, 39, 0.4);
   border-radius: 50px;
-  padding: 0.5rem 0.9rem;
   font-family: var(--font-sans);
   font-size: 0.85rem;
   color: var(--text);
   cursor: pointer;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  flex-shrink: 0;
 }
 .music-toggle:hover {
   background: var(--blush);
+  border-color: var(--blush);
   color: var(--white);
 }
-.music-icon { font-size: 1.1rem; }
+.music-icon { font-size: 1rem; }
 .music-toggle.playing .music-icon { animation: musicNote 0.6s ease infinite; }
 @keyframes musicNote { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
 
@@ -225,6 +222,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 .nav-logo {
   font-family: var(--font-script);
