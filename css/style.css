@@ -1126,6 +1126,11 @@ a.song-toggle-link {
   font-size: 0.85rem;
   opacity: 0.8;
 }
+.footer-yaros {
+  margin: 0.75rem 0 0;
+  font-size: 0.75rem;
+  opacity: 0.65;
+}
 
 /* ========== Holy songs / lyrics page (Ethiopian Orthodox–inspired, heavenly) ========== */
 .page-songs {
