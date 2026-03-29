@@ -278,7 +278,12 @@
           <p>Prefer to RSVP online?</p>
           <a href="https://rsvp.online/vccehz" target="_blank" rel="noopener noreferrer" class="rsvp-link">RSVP at rsvp.online →</a>
         </div>
-        <form id="rsvpForm" class="rsvp-form">
+        <!-- Google Apps Script Web App URL (Deploy → Web app → copy URL ending in /exec) -->
+        <form
+          id="rsvpForm"
+          class="rsvp-form"
+          data-rsvp-url="https://script.google.com/macros/s/AKfycbx_1Fw0QX3s7XDQkdn_CDDokfb902Nn5ONGoopNphwHRYZ9QuwzBUxyK14V0_TTPSNi/exec"
+        >
           <div class="form-group">
             <label for="name">Name *</label>
             <input type="text" id="name" name="name" required placeholder="Your full name" />
@@ -302,6 +307,7 @@
             <span class="btn-text">Send RSVP</span>
           </button>
         </form>
+        <p id="rsvpError" class="rsvp-error" role="alert" hidden></p>
         <div id="rsvpSuccess" class="rsvp-success" hidden>
           <span class="success-icon">✓</span>
           <p>Thank you! Your response has been received.</p>

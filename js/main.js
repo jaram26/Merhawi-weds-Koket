@@ -150,29 +150,91 @@
     });
   }
 
-  // ---------- RSVP form ----------
+  // ---------- RSVP form (Google Apps Script web app → Sheet) ----------
   function initRSVP() {
     const form = document.getElementById('rsvpForm');
     const successEl = document.getElementById('rsvpSuccess');
+    const errorEl = document.getElementById('rsvpError');
     const submitBtn = document.getElementById('rsvpSubmit');
 
     if (!form || !successEl) return;
 
-    form.addEventListener('submit', (e) => {
+    function hideRsvpError() {
+      if (!errorEl) return;
+      errorEl.hidden = true;
+      errorEl.textContent = '';
+      errorEl.classList.add('hidden');
+    }
+
+    function showRsvpError(msg) {
+      if (errorEl) {
+        errorEl.textContent = msg;
+        errorEl.hidden = false;
+        errorEl.classList.remove('hidden');
+      } else {
+        window.alert(msg);
+      }
+    }
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      hideRsvpError();
+
+      const scriptUrl = (form.dataset.rsvpUrl || '').trim();
+      if (!scriptUrl) {
+        showRsvpError(
+          'RSVP is not connected yet. Paste your Google Apps Script web app URL into data-rsvp-url on the RSVP form in index.html.'
+        );
+        return;
+      }
+
       const btnText = submitBtn?.querySelector('.btn-text');
       if (submitBtn) {
         submitBtn.disabled = true;
         if (btnText) btnText.textContent = 'Sending...';
       }
-      // Simulate submit (replace with your backend/Formspree etc.)
-      setTimeout(() => {
+
+      const payload = {
+        name:
+          form.elements.name && form.elements.name.value
+            ? String(form.elements.name.value).trim()
+            : '',
+        attendance: form.querySelector('input[name="attendance"]:checked')?.value || '',
+        guests: form.elements.guests ? String(form.elements.guests.value) : '',
+        message:
+          form.elements.message && form.elements.message.value
+            ? String(form.elements.message.value).trim()
+            : '',
+      };
+
+      try {
+        const res = await fetch(scriptUrl, {
+          method: 'POST',
+          mode: 'cors',
+          redirect: 'follow',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const text = await res.text();
+        let data = {};
+        try {
+          data = text ? JSON.parse(text) : {};
+        } catch {
+          /* Apps Script may return non-JSON on failure */
+        }
+        if (!res.ok || data.ok === false) {
+          throw new Error(data.error || 'Could not send RSVP. Please try again.');
+        }
         successEl.hidden = false;
         successEl.classList.remove('hidden');
         form.classList.add('hidden');
+        form.reset();
+      } catch (err) {
+        showRsvpError(err.message || 'Something went wrong. Please try again.');
+      } finally {
         if (submitBtn) submitBtn.disabled = false;
         if (btnText) btnText.textContent = 'Send RSVP';
-      }, 800);
+      }
     });
   }
 

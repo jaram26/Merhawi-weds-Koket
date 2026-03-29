@@ -1020,6 +1020,20 @@ a.song-toggle-link {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
+.rsvp-error {
+  max-width: 520px;
+  margin: 0 auto 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  background: rgba(180, 60, 60, 0.12);
+  color: #8b2a2a;
+  font-size: 0.95rem;
+  text-align: center;
+}
+.rsvp-error[hidden],
+.rsvp-error.hidden {
+  display: none !important;
+}
 
 /* ========== Gifts ========== */
 .section-gifts {
@@ -1132,14 +1146,13 @@ a.song-toggle-link {
   opacity: 0.65;
 }
 
-/* ========== Holy songs / lyrics page (Ethiopian Orthodox–inspired, heavenly) ========== */
+/* ========== Holy songs / lyrics page — full cloud sky ========== */
 .page-songs {
   margin: 0;
   min-height: 100vh;
   font-family: var(--font-serif);
   color: #3d4550;
-  background: linear-gradient(180deg, #f8fbff 0%, #eef4fc 35%, #ffffff 55%, #f5f8fc 100%);
-  background-attachment: fixed;
+  background: linear-gradient(180deg, #dce6f2 0%, #e8eef6 25%, #eef2f8 50%, #e5ebf4 75%, #dde5f0 100%);
   overflow-x: hidden;
 }
 
@@ -1151,60 +1164,225 @@ a.song-toggle-link {
   overflow: hidden;
 }
 
+/* Soft mist base — fills the viewport like dense sky */
+.song-cloud-mist {
+  position: absolute;
+  inset: -5%;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 130% 70% at 50% -15%, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.55) 42%, transparent 68%),
+    radial-gradient(ellipse 95% 55% at 15% 105%, rgba(248, 250, 255, 0.92) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 50% at 92% 98%, rgba(255, 255, 255, 0.88) 0%, transparent 52%),
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(240, 245, 252, 0.65) 0%, transparent 65%);
+  animation: songMistDrift 48s ease-in-out infinite;
+}
+@keyframes songMistDrift {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 1; }
+  50% { transform: scale(1.03) translate(1%, -0.5%); opacity: 0.97; }
+}
+
 .song-cloud {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(ellipse at 40% 40%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.4) 45%, transparent 70%);
-  filter: blur(1px);
-  opacity: 0.85;
-  animation: songCloudDrift 85s ease-in-out infinite;
+  background: radial-gradient(ellipse at 38% 38%, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.55) 38%, rgba(245, 248, 252, 0.2) 58%, transparent 72%);
+  filter: blur(1.5px);
+  opacity: 0.92;
+  animation: songCloudDrift 95s ease-in-out infinite;
+  z-index: 1;
 }
 .song-cloud-1 {
-  width: min(120vw, 900px);
-  height: min(50vw, 320px);
-  top: -8%;
-  left: -15%;
+  width: min(130vw, 960px);
+  height: min(55vw, 360px);
+  top: -12%;
+  left: -18%;
   animation-delay: 0s;
 }
 .song-cloud-2 {
-  width: min(100vw, 700px);
-  height: min(42vw, 260px);
-  top: 18%;
-  right: -20%;
-  animation-delay: -28s;
-  opacity: 0.7;
+  width: min(115vw, 820px);
+  height: min(48vw, 300px);
+  top: 8%;
+  right: -22%;
+  animation-delay: -32s;
+  opacity: 0.82;
 }
 .song-cloud-3 {
-  width: min(90vw, 600px);
-  height: min(38vw, 220px);
-  bottom: 5%;
-  left: 10%;
+  width: min(100vw, 720px);
+  height: min(44vw, 280px);
+  bottom: -5%;
+  left: 5%;
+  animation-delay: -62s;
+  opacity: 0.78;
+}
+.song-cloud-4 {
+  width: min(85vw, 560px);
+  height: min(36vw, 220px);
+  top: 38%;
+  left: -12%;
+  animation: songCloudDriftFast 52s ease-in-out infinite;
+  animation-delay: -8s;
+  opacity: 0.72;
+}
+.song-cloud-5 {
+  width: min(78vw, 520px);
+  height: min(34vw, 200px);
+  bottom: 18%;
+  right: -8%;
+  animation: songCloudDriftFast 46s ease-in-out infinite;
+  animation-delay: -24s;
+  opacity: 0.68;
+}
+.song-cloud-6 {
+  width: min(95vw, 680px);
+  height: min(40vw, 240px);
+  top: 52%;
+  right: -15%;
+  animation: songCloudDrift 88s ease-in-out infinite;
+  animation-delay: -48s;
+  opacity: 0.75;
+}
+.song-cloud-7 {
+  width: min(70vw, 480px);
+  height: min(32vw, 190px);
+  top: 22%;
+  left: 25%;
+  animation: songCloudDriftSlow 120s ease-in-out infinite;
+  animation-delay: -15s;
+  opacity: 0.55;
+  filter: blur(2px);
+}
+.song-cloud-8 {
+  width: min(90vw, 640px);
+  height: min(38vw, 230px);
+  bottom: 32%;
+  left: -10%;
+  animation: songCloudDriftFast 58s ease-in-out infinite;
+  animation-delay: -40s;
+  opacity: 0.62;
+}
+.song-cloud-9 {
+  width: min(65vw, 440px);
+  height: min(30vw, 170px);
+  top: 65%;
+  left: 35%;
+  animation: songWispFloat 36s ease-in-out infinite;
+  animation-delay: -10s;
+  opacity: 0.58;
+}
+.song-cloud-10 {
+  width: min(110vw, 780px);
+  height: min(42vw, 260px);
+  top: -5%;
+  left: 20%;
+  animation: songCloudDriftSlow 110s ease-in-out infinite;
+  animation-delay: -70s;
+  opacity: 0.5;
+  filter: blur(2.5px);
+}
+.song-cloud-11 {
+  width: min(75vw, 500px);
+  height: min(35vw, 200px);
+  bottom: 8%;
+  right: 12%;
+  animation: songCloudDrift 92s ease-in-out infinite;
   animation-delay: -55s;
-  opacity: 0.65;
+  opacity: 0.7;
+}
+.song-cloud-12 {
+  width: min(60vw, 400px);
+  height: min(28vw, 160px);
+  top: 78%;
+  right: 22%;
+  animation: songCloudDriftFast 44s ease-in-out infinite;
+  animation-delay: -18s;
+  opacity: 0.64;
+}
+
+.song-cloud-wisp {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 28% 38%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.35) 48%, transparent 78%);
+  filter: blur(2.5px);
+  pointer-events: none;
+  z-index: 1;
+  animation: songWispFloat 32s ease-in-out infinite;
+}
+.song-cloud-wisp-1 {
+  width: min(50vw, 320px);
+  height: min(22vw, 120px);
+  top: 58%;
+  left: 12%;
+  animation-delay: 0s;
+  opacity: 0.62;
+}
+.song-cloud-wisp-2 {
+  width: min(55vw, 340px);
+  height: min(24vw, 130px);
+  top: 30%;
+  right: 8%;
+  animation-delay: -16s;
+  opacity: 0.58;
+}
+.song-cloud-wisp-3 {
+  width: min(42vw, 260px);
+  height: min(18vw, 95px);
+  top: 12%;
+  left: 40%;
+  animation-delay: -22s;
+  opacity: 0.52;
+}
+.song-cloud-wisp-4 {
+  width: min(48vw, 300px);
+  height: min(20vw, 108px);
+  bottom: 38%;
+  right: 28%;
+  animation-delay: -8s;
+  opacity: 0.55;
+}
+.song-cloud-wisp-5 {
+  width: min(38vw, 240px);
+  height: min(16vw, 88px);
+  top: 45%;
+  left: 48%;
+  animation-delay: -28s;
+  opacity: 0.48;
+}
+.song-cloud-wisp-6 {
+  width: min(44vw, 280px);
+  height: min(19vw, 100px);
+  bottom: 48%;
+  left: 3%;
+  animation-delay: -12s;
+  opacity: 0.5;
 }
 
 @keyframes songCloudDrift {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(4%, 2%) scale(1.03); }
-  66% { transform: translate(-3%, -1%) scale(0.98); }
+  33% { transform: translate(5%, 2.5%) scale(1.02); }
+  66% { transform: translate(-4%, -1.5%) scale(0.99); }
+}
+@keyframes songCloudDriftFast {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10%, -4%) scale(1.05); }
+}
+@keyframes songCloudDriftSlow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-3%, 2%) scale(1.03); }
+}
+@keyframes songWispFloat {
+  0%, 100% { transform: translate(0, 0); opacity: 0.42; }
+  33% { transform: translate(7%, -5%); opacity: 0.62; }
+  66% { transform: translate(-5%, 4%); opacity: 0.48; }
 }
 
-.song-rays {
-  position: absolute;
-  top: -30%;
-  left: 50%;
-  width: 140%;
-  height: 70%;
-  transform: translateX(-50%);
-  background: radial-gradient(ellipse 50% 80% at 50% 0%, rgba(255, 252, 240, 0.9) 0%, rgba(230, 238, 255, 0.35) 40%, transparent 72%);
-  opacity: 0.75;
-}
-
-.song-cross-grid {
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23c9a227' stroke-width='0.35' opacity='0.12'%3E%3Cpath d='M60 8v104M8 60h104'/%3E%3Ccircle cx='60' cy='8' r='3'/%3E%3Ccircle cx='60' cy='112' r='3'/%3E%3Ccircle cx='8' cy='60' r='3'/%3E%3Ccircle cx='112' cy='60' r='3'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 120px 120px;
+@media (prefers-reduced-motion: reduce) {
+  .page-songs {
+    animation: none;
+  }
+  .song-cloud-mist,
+  .song-cloud,
+  .song-cloud-wisp {
+    animation: none !important;
+  }
 }
 
 .song-top-nav {
