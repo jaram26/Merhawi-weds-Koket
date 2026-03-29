@@ -920,23 +920,6 @@ a.song-toggle-link {
   color: var(--gold);
   margin: 0 0 1rem;
 }
-.rsvp-external {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(255,255,255,0.6);
-  border-radius: var(--radius);
-}
-.rsvp-external p { margin: 0 0 0.5rem; font-size: 0.95rem; color: var(--text-soft); }
-.rsvp-link {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-weight: 500;
-  color: var(--gold);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.rsvp-link:hover { color: var(--blush-dark); text-decoration: underline; }
 .rsvp-form {
   max-width: 480px;
   margin: 0 auto;
