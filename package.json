@@ -8,6 +8,7 @@
     "dev": "node node_modules/serve/build/main.js . -l 3000"
   },
   "devDependencies": {
-    "serve": "^14.2.0"
+    "serve": "^14.2.0",
+    "sharp": "^0.34.5"
   }
 }
