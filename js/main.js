@@ -207,24 +207,20 @@
             : '',
       };
 
+      // Apps Script web apps often omit CORS headers; JSON POST fails in the browser as "Failed to fetch".
+      // Simple form body + no-cors avoids CORS; Apps Script reads fields via e.parameter (see apps-script/rsvp-webapp.gs).
       try {
-        const res = await fetch(scriptUrl, {
-          method: 'POST',
-          mode: 'cors',
-          redirect: 'follow',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
+        const body = new URLSearchParams({
+          name: payload.name,
+          attendance: payload.attendance,
+          guests: payload.guests,
+          message: payload.message,
         });
-        const text = await res.text();
-        let data = {};
-        try {
-          data = text ? JSON.parse(text) : {};
-        } catch {
-          /* Apps Script may return non-JSON on failure */
-        }
-        if (!res.ok || data.ok === false) {
-          throw new Error(data.error || 'Could not send RSVP. Please try again.');
-        }
+        await fetch(scriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          body,
+        });
         successEl.hidden = false;
         successEl.classList.remove('hidden');
         form.classList.add('hidden');
