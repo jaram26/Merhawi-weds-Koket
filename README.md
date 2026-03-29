@@ -52,13 +52,13 @@ Open `index.html` in a browser. No build step required. For local development wi
 - **Gifts** section with QR placeholder  
 - **Travel & accommodation** and area map  
 - **Footer** with contact, social links, and hashtag  
-- **Optional:** Background music toggle, English/Amharic toggle, floating hearts, scroll-triggered section animations  
+- **Optional:** Holy songs page (`songs.html`), English/Amharic toggle, floating hearts, scroll-triggered section animations  
 
 ## Files
 
 - `index.html` — All content and structure  
 - `css/style.css` — Layout, theme, animations, responsive styles  
-- `js/main.js` — Countdown, music, language switch, nav, gallery lightbox, RSVP handling  
+- `js/main.js` — Countdown, optional audio toggle, language switch, nav, gallery lightbox, RSVP handling  
 
 ## Browser support
 

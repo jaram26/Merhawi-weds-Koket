@@ -1,6 +1,6 @@
 /**
  * Merhawi & Koket — Wedding Website
- * Interactive features: loader, countdown, music, nav, gallery, RSVP, language
+ * Interactive features: loader, countdown, optional song/audio toggle, nav, gallery, RSVP, language
  */
 
 (function () {
