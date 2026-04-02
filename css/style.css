@@ -334,6 +334,12 @@ a.song-toggle-link {
   color: var(--gold);
   margin: 0 0 0.25rem;
 }
+.section-story p.section-subtitle.story-intro {
+  margin-bottom: 1rem;
+}
+.section-story p.section-subtitle.story-intro:last-of-type {
+  margin-bottom: 2.5rem;
+}
 .invitation-line {
   text-align: center;
   font-family: var(--font-serif);
