@@ -1,0 +1,19 @@
+{
+  "name": "Merhawi & Koket — Wedding",
+  "short_name": "M & K Wedding",
+  "description": "Join us in celebrating Merhawi & Koket — April 19, 2026",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#b8923a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/hero-couple.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

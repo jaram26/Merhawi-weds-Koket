@@ -80,21 +80,44 @@
     const nav = document.getElementById('mainNav');
     const toggle = document.getElementById('navToggle');
     const links = document.querySelector('.nav-links');
+    const backdrop = document.getElementById('navBackdrop');
+
+    function setMenuOpen(open) {
+      if (!links) return;
+      links.classList.toggle('open', open);
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+      if (backdrop) {
+        backdrop.classList.toggle('is-open', open);
+        backdrop.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+      document.body.style.overflow = open ? 'hidden' : '';
+      document.documentElement.style.overflow = open ? 'hidden' : '';
+    }
 
     if (nav) {
-      let lastScroll = 0;
       window.addEventListener('scroll', () => {
         const y = window.scrollY;
         if (y > 80) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
-        lastScroll = y;
       }, { passive: true });
     }
 
     if (toggle && links) {
-      toggle.addEventListener('click', () => links.classList.toggle('open'));
+      toggle.addEventListener('click', () => {
+        const open = !links.classList.contains('open');
+        setMenuOpen(open);
+      });
       links.querySelectorAll('a').forEach((a) => {
-        a.addEventListener('click', () => links.classList.remove('open'));
+        a.addEventListener('click', () => setMenuOpen(false));
+      });
+      if (backdrop) {
+        backdrop.addEventListener('click', () => setMenuOpen(false));
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && links.classList.contains('open')) setMenuOpen(false);
       });
     }
   }
@@ -114,63 +137,6 @@
     });
   }
 
-  // ---------- Gallery: load thumbnails in small batches (avoids scroll jank from 40 huge JPEGs) ----------
-  function initProgressiveGalleryThumbs(grid) {
-    const PLACEHOLDER =
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5' width='400' height='500' fill='%23ede6db'/%3E";
-    const maxConcurrent = 2;
-    let loading = 0;
-    const queue = [];
-
-    function pump() {
-      while (loading < maxConcurrent && queue.length) {
-        const img = queue.shift();
-        const url = img && img.dataset.thumbSrc;
-        if (!url) continue;
-        delete img.dataset.thumbSrc;
-        loading += 1;
-        const finish = () => {
-          loading -= 1;
-          img.onload = null;
-          img.onerror = null;
-          img.classList.add('gallery-thumb-loaded');
-          pump();
-        };
-        img.onload = finish;
-        img.onerror = finish;
-        img.src = url;
-      }
-    }
-
-    const imgs = grid.querySelectorAll('.gallery-item img');
-    imgs.forEach((img) => {
-      const url = img.getAttribute('src');
-      if (!url || url.indexOf('data:') === 0) return;
-      img.dataset.thumbSrc = url;
-      img.removeAttribute('src');
-      img.setAttribute('decoding', 'async');
-      img.removeAttribute('loading');
-      img.src = PLACEHOLDER;
-    });
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const img = entry.target;
-          observer.unobserve(img);
-          if (img.dataset.thumbSrc) queue.push(img);
-          pump();
-        });
-      },
-      { root: null, rootMargin: '180px 0px 240px 0px', threshold: 0 }
-    );
-
-    imgs.forEach((img) => {
-      if (img.dataset.thumbSrc) observer.observe(img);
-    });
-  }
-
   // ---------- Gallery lightbox ----------
   function initGallery() {
     const grid = document.getElementById('galleryGrid');
@@ -184,10 +150,10 @@
 
     if (!grid || !lightbox || !lightboxImg) return;
 
-    initProgressiveGalleryThumbs(grid);
-
     const items = Array.from(grid.querySelectorAll('.gallery-item'));
-    const sources = items.map((item) => item.dataset.src || '');
+    const sources = items.map(
+      (item) => item.dataset.src || item.querySelector('img')?.getAttribute('src') || ''
+    );
     let currentIndex = 0;
 
     function galleryFilename(index) {
@@ -276,6 +242,30 @@
         showSlide(currentIndex + 1);
       }
     });
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+    lightbox.addEventListener(
+      'touchstart',
+      (e) => {
+        if (!lightbox.classList.contains('active') || !e.changedTouches[0]) return;
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      },
+      { passive: true }
+    );
+    lightbox.addEventListener(
+      'touchend',
+      (e) => {
+        if (!lightbox.classList.contains('active') || !e.changedTouches[0]) return;
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        const dy = e.changedTouches[0].screenY - touchStartY;
+        if (Math.abs(dx) < 56 || Math.abs(dx) < Math.abs(dy)) return;
+        if (dx < 0) showSlide(currentIndex + 1);
+        else showSlide(currentIndex - 1);
+      },
+      { passive: true }
+    );
   }
 
   // ---------- RSVP form (Google Apps Script web app → Sheet) ----------

@@ -2,13 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#faf7f2" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="assets/hero-couple.png" />
   <title>Merhawi & Koket — April 19, 2026</title>
   <meta name="description" content="Join us in celebrating the wedding of Merhawi Girma and Koket Mesfin — April 19, 2026" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <script>
+    (function () {
+      var narrow = typeof window.matchMedia === 'function' && window.matchMedia('(max-width: 768px)').matches;
+      var max = narrow ? 10 : 40;
+      for (var i = 1; i <= max; i += 1) {
+        var link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = 'assets/wedding/gallery-' + String(i).padStart(2, '0') + '.jpg';
+        document.head.appendChild(link);
+      }
+    })();
+  </script>
 </head>
 <body>
   <!-- Loading Screen -->
@@ -36,10 +55,10 @@
   <nav class="main-nav" id="mainNav">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">M & K</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
         <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navMenu">
         <li><a href="#hero">Home</a></li>
         <li><a href="#story">Our Story</a></li>
         <li><a href="#couple">Bride & Groom</a></li>
@@ -55,6 +74,7 @@
       </a>
     </div>
   </nav>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
   <main>
     <!-- Hero -->
@@ -256,49 +276,49 @@
         <header class="gallery-header">
           <h2 class="section-title script">Gallery</h2>
           <p class="section-subtitle gallery-lead">Our celebration in forty photographs</p>
-          <p class="gallery-hint">Tap an image to enlarge — use the arrows or keyboard to browse.</p>
+          <p class="gallery-hint">Tap a photo to enlarge — swipe or use the arrows to browse.</p>
         </header>
         <div class="gallery-grid" id="galleryGrid">
-          <div class="gallery-item" data-src="assets/wedding/gallery-01.jpg"><img src="assets/wedding/gallery-01.jpg" alt="Merhawi and Koket — wedding photo 1 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-02.jpg"><img src="assets/wedding/gallery-02.jpg" alt="Merhawi and Koket — wedding photo 2 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-03.jpg"><img src="assets/wedding/gallery-03.jpg" alt="Merhawi and Koket — wedding photo 3 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-04.jpg"><img src="assets/wedding/gallery-04.jpg" alt="Merhawi and Koket — wedding photo 4 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-05.jpg"><img src="assets/wedding/gallery-05.jpg" alt="Merhawi and Koket — wedding photo 5 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-06.jpg"><img src="assets/wedding/gallery-06.jpg" alt="Merhawi and Koket — wedding photo 6 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-07.jpg"><img src="assets/wedding/gallery-07.jpg" alt="Merhawi and Koket — wedding photo 7 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-08.jpg"><img src="assets/wedding/gallery-08.jpg" alt="Merhawi and Koket — wedding photo 8 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-09.jpg"><img src="assets/wedding/gallery-09.jpg" alt="Merhawi and Koket — wedding photo 9 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-10.jpg"><img src="assets/wedding/gallery-10.jpg" alt="Merhawi and Koket — wedding photo 10 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-11.jpg"><img src="assets/wedding/gallery-11.jpg" alt="Merhawi and Koket — wedding photo 11 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-12.jpg"><img src="assets/wedding/gallery-12.jpg" alt="Merhawi and Koket — wedding photo 12 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-13.jpg"><img src="assets/wedding/gallery-13.jpg" alt="Merhawi and Koket — wedding photo 13 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-14.jpg"><img src="assets/wedding/gallery-14.jpg" alt="Merhawi and Koket — wedding photo 14 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-15.jpg"><img src="assets/wedding/gallery-15.jpg" alt="Merhawi and Koket — wedding photo 15 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-16.jpg"><img src="assets/wedding/gallery-16.jpg" alt="Merhawi and Koket — wedding photo 16 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-17.jpg"><img src="assets/wedding/gallery-17.jpg" alt="Merhawi and Koket — wedding photo 17 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-18.jpg"><img src="assets/wedding/gallery-18.jpg" alt="Merhawi and Koket — wedding photo 18 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-19.jpg"><img src="assets/wedding/gallery-19.jpg" alt="Merhawi and Koket — wedding photo 19 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-20.jpg"><img src="assets/wedding/gallery-20.jpg" alt="Merhawi and Koket — wedding photo 20 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-21.jpg"><img src="assets/wedding/gallery-21.jpg" alt="Merhawi and Koket — wedding photo 21 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-22.jpg"><img src="assets/wedding/gallery-22.jpg" alt="Merhawi and Koket — wedding photo 22 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-23.jpg"><img src="assets/wedding/gallery-23.jpg" alt="Merhawi and Koket — wedding photo 23 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-24.jpg"><img src="assets/wedding/gallery-24.jpg" alt="Merhawi and Koket — wedding photo 24 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-25.jpg"><img src="assets/wedding/gallery-25.jpg" alt="Merhawi and Koket — wedding photo 25 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-26.jpg"><img src="assets/wedding/gallery-26.jpg" alt="Merhawi and Koket — wedding photo 26 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-27.jpg"><img src="assets/wedding/gallery-27.jpg" alt="Merhawi and Koket — wedding photo 27 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-28.jpg"><img src="assets/wedding/gallery-28.jpg" alt="Merhawi and Koket — wedding photo 28 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-29.jpg"><img src="assets/wedding/gallery-29.jpg" alt="Merhawi and Koket — wedding photo 29 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-30.jpg"><img src="assets/wedding/gallery-30.jpg" alt="Merhawi and Koket — wedding photo 30 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-31.jpg"><img src="assets/wedding/gallery-31.jpg" alt="Merhawi and Koket — wedding photo 31 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-32.jpg"><img src="assets/wedding/gallery-32.jpg" alt="Merhawi and Koket — wedding photo 32 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-33.jpg"><img src="assets/wedding/gallery-33.jpg" alt="Merhawi and Koket — wedding photo 33 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-34.jpg"><img src="assets/wedding/gallery-34.jpg" alt="Merhawi and Koket — wedding photo 34 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-35.jpg"><img src="assets/wedding/gallery-35.jpg" alt="Merhawi and Koket — wedding photo 35 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-36.jpg"><img src="assets/wedding/gallery-36.jpg" alt="Merhawi and Koket — wedding photo 36 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-37.jpg"><img src="assets/wedding/gallery-37.jpg" alt="Merhawi and Koket — wedding photo 37 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-38.jpg"><img src="assets/wedding/gallery-38.jpg" alt="Merhawi and Koket — wedding photo 38 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-39.jpg"><img src="assets/wedding/gallery-39.jpg" alt="Merhawi and Koket — wedding photo 39 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-40.jpg"><img src="assets/wedding/gallery-40.jpg" alt="Merhawi and Koket — wedding photo 40 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-01.jpg"><img src="assets/wedding/gallery-01.jpg" alt="Merhawi and Koket — wedding photo 1 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-02.jpg"><img src="assets/wedding/gallery-02.jpg" alt="Merhawi and Koket — wedding photo 2 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-03.jpg"><img src="assets/wedding/gallery-03.jpg" alt="Merhawi and Koket — wedding photo 3 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-04.jpg"><img src="assets/wedding/gallery-04.jpg" alt="Merhawi and Koket — wedding photo 4 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-05.jpg"><img src="assets/wedding/gallery-05.jpg" alt="Merhawi and Koket — wedding photo 5 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-06.jpg"><img src="assets/wedding/gallery-06.jpg" alt="Merhawi and Koket — wedding photo 6 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-07.jpg"><img src="assets/wedding/gallery-07.jpg" alt="Merhawi and Koket — wedding photo 7 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-08.jpg"><img src="assets/wedding/gallery-08.jpg" alt="Merhawi and Koket — wedding photo 8 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-09.jpg"><img src="assets/wedding/gallery-09.jpg" alt="Merhawi and Koket — wedding photo 9 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-10.jpg"><img src="assets/wedding/gallery-10.jpg" alt="Merhawi and Koket — wedding photo 10 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-11.jpg"><img src="assets/wedding/gallery-11.jpg" alt="Merhawi and Koket — wedding photo 11 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-12.jpg"><img src="assets/wedding/gallery-12.jpg" alt="Merhawi and Koket — wedding photo 12 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-13.jpg"><img src="assets/wedding/gallery-13.jpg" alt="Merhawi and Koket — wedding photo 13 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-14.jpg"><img src="assets/wedding/gallery-14.jpg" alt="Merhawi and Koket — wedding photo 14 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-15.jpg"><img src="assets/wedding/gallery-15.jpg" alt="Merhawi and Koket — wedding photo 15 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-16.jpg"><img src="assets/wedding/gallery-16.jpg" alt="Merhawi and Koket — wedding photo 16 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-17.jpg"><img src="assets/wedding/gallery-17.jpg" alt="Merhawi and Koket — wedding photo 17 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-18.jpg"><img src="assets/wedding/gallery-18.jpg" alt="Merhawi and Koket — wedding photo 18 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-19.jpg"><img src="assets/wedding/gallery-19.jpg" alt="Merhawi and Koket — wedding photo 19 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-20.jpg"><img src="assets/wedding/gallery-20.jpg" alt="Merhawi and Koket — wedding photo 20 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-21.jpg"><img src="assets/wedding/gallery-21.jpg" alt="Merhawi and Koket — wedding photo 21 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-22.jpg"><img src="assets/wedding/gallery-22.jpg" alt="Merhawi and Koket — wedding photo 22 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-23.jpg"><img src="assets/wedding/gallery-23.jpg" alt="Merhawi and Koket — wedding photo 23 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-24.jpg"><img src="assets/wedding/gallery-24.jpg" alt="Merhawi and Koket — wedding photo 24 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-25.jpg"><img src="assets/wedding/gallery-25.jpg" alt="Merhawi and Koket — wedding photo 25 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-26.jpg"><img src="assets/wedding/gallery-26.jpg" alt="Merhawi and Koket — wedding photo 26 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-27.jpg"><img src="assets/wedding/gallery-27.jpg" alt="Merhawi and Koket — wedding photo 27 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-28.jpg"><img src="assets/wedding/gallery-28.jpg" alt="Merhawi and Koket — wedding photo 28 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-29.jpg"><img src="assets/wedding/gallery-29.jpg" alt="Merhawi and Koket — wedding photo 29 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-30.jpg"><img src="assets/wedding/gallery-30.jpg" alt="Merhawi and Koket — wedding photo 30 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-31.jpg"><img src="assets/wedding/gallery-31.jpg" alt="Merhawi and Koket — wedding photo 31 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-32.jpg"><img src="assets/wedding/gallery-32.jpg" alt="Merhawi and Koket — wedding photo 32 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-33.jpg"><img src="assets/wedding/gallery-33.jpg" alt="Merhawi and Koket — wedding photo 33 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-34.jpg"><img src="assets/wedding/gallery-34.jpg" alt="Merhawi and Koket — wedding photo 34 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-35.jpg"><img src="assets/wedding/gallery-35.jpg" alt="Merhawi and Koket — wedding photo 35 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-36.jpg"><img src="assets/wedding/gallery-36.jpg" alt="Merhawi and Koket — wedding photo 36 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-37.jpg"><img src="assets/wedding/gallery-37.jpg" alt="Merhawi and Koket — wedding photo 37 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-38.jpg"><img src="assets/wedding/gallery-38.jpg" alt="Merhawi and Koket — wedding photo 38 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-39.jpg"><img src="assets/wedding/gallery-39.jpg" alt="Merhawi and Koket — wedding photo 39 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-40.jpg"><img src="assets/wedding/gallery-40.jpg" alt="Merhawi and Koket — wedding photo 40 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
         </div>
       </div>
     </section>
