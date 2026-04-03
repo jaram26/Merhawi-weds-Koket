@@ -12,12 +12,18 @@
   function initLoader() {
     const loader = document.getElementById('loader');
     if (!loader) return;
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        loader.classList.add('hidden');
-        setTimeout(() => loader.remove(), 600);
-      }, 1200);
-    });
+    const hide = () => {
+      loader.classList.add('hidden');
+      setTimeout(() => loader.remove(), 400);
+    };
+    // Hide shortly after DOM is ready — do not wait for full window load (images),
+    // so the splash does not block for many seconds.
+    const delayMs = 280;
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => setTimeout(hide, delayMs));
+    } else {
+      setTimeout(hide, delayMs);
+    }
   }
 
   // ---------- Countdown ----------
@@ -32,6 +38,18 @@
 
     function pad(n) {
       return String(n).padStart(2, '0');
+    }
+
+    const countdownRoot = document.getElementById('countdown');
+    let prevSecond = -1;
+
+    function pulseSeconds() {
+      if (!countdownRoot) return;
+      const secItem = countdownRoot.querySelector('.countdown-item:last-child');
+      if (!secItem) return;
+      secItem.classList.remove('countdown-tick');
+      void secItem.offsetWidth;
+      secItem.classList.add('countdown-tick');
     }
 
     function update() {
@@ -52,6 +70,11 @@
       els.hours.textContent = pad(h);
       els.minutes.textContent = pad(m);
       els.seconds.textContent = pad(s);
+      if (s !== prevSecond) {
+        prevSecond = s;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        pulseSeconds();
+      }
     }
 
     update();
@@ -352,6 +375,21 @@
     });
   }
 
+  // ---------- Songs page: one open lyrics panel at a time ----------
+  function initLyricsAccordion() {
+    const faq = document.querySelector('.lyrics-faq');
+    if (!faq) return;
+    const items = faq.querySelectorAll('details.lyrics-item');
+    items.forEach((details) => {
+      details.addEventListener('toggle', () => {
+        if (!details.open) return;
+        items.forEach((other) => {
+          if (other !== details) other.removeAttribute('open');
+        });
+      });
+    });
+  }
+
   // ---------- Scroll-triggered animations (optional) ----------
   function initScrollAnimations() {
     const sections = document.querySelectorAll('.section');
@@ -376,6 +414,72 @@
     revealIfInViewport();
   }
 
+  // ---------- Staggered reveals inside sections ----------
+  function initStaggerReveal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const blocks = document.querySelectorAll('[data-stagger]');
+    if (!blocks.length) return;
+    const step = 0.045;
+    const maxDelay = 0.9;
+    blocks.forEach((parent) => {
+      Array.from(parent.children).forEach((child, i) => {
+        const d = Math.min(i * step, maxDelay);
+        child.style.transitionDelay = `${d}s`;
+      });
+    });
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('stagger-visible');
+          io.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -8% 0px' }
+    );
+    blocks.forEach((el) => io.observe(el));
+  }
+
+  // ---------- Welcome modal (once per browser session) ----------
+  function initWelcomeModal() {
+    const modal = document.getElementById('welcomeModal');
+    const closeBtn = document.getElementById('welcomeModalClose');
+    const backdrop = document.getElementById('welcomeModalBackdrop');
+    if (!modal || !closeBtn) return;
+
+    const KEY = 'mk_welcome_dismissed';
+    function openModal() {
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function closeModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      try {
+        sessionStorage.setItem(KEY, '1');
+      } catch (e) {}
+    }
+
+    let dismissed = false;
+    try {
+      dismissed = !!sessionStorage.getItem(KEY);
+    } catch (e) {}
+    if (!dismissed) {
+      window.addEventListener('load', () => {
+        setTimeout(openModal, 2000);
+      });
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    });
+  }
+
   // ---------- Run all ----------
   initLoader();
   initCountdown();
@@ -385,4 +489,7 @@
   initGallery();
   initRSVP();
   initScrollAnimations();
+  initLyricsAccordion();
+  initStaggerReveal();
+  initWelcomeModal();
 })();

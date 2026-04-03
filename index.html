@@ -34,7 +34,12 @@
   <div id="loader" class="loader">
     <div class="loader-content">
       <span class="loader-initials">M & K</span>
-      <div class="loader-floral"></div>
+      <div class="loader-rings" aria-hidden="true">
+        <svg class="loader-rings-svg" viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <circle class="loader-ring loader-ring--left" cx="24" cy="22" r="15" stroke="currentColor" stroke-width="2.5" />
+          <circle class="loader-ring loader-ring--right" cx="40" cy="22" r="15" stroke="currentColor" stroke-width="2.5" />
+        </svg>
+      </div>
       <div class="loader-bar"></div>
     </div>
   </div>
@@ -76,6 +81,18 @@
   </nav>
   <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
+  <!-- One-time welcome dialog (session) -->
+  <div id="welcomeModal" class="welcome-modal" aria-hidden="true" role="dialog" aria-labelledby="welcomeModalTitle" aria-modal="true">
+    <div class="welcome-modal-backdrop" id="welcomeModalBackdrop"></div>
+    <div class="welcome-modal-panel">
+      <p class="welcome-modal-eyebrow">Merhawi &amp; Koket</p>
+      <h2 id="welcomeModalTitle" class="welcome-modal-title script">Save the date</h2>
+      <p class="welcome-modal-date">April 19, 2026</p>
+      <p class="welcome-modal-text">We’re so glad you’re here. Scroll to explore our story, details, and RSVP.</p>
+      <button type="button" class="welcome-modal-btn" id="welcomeModalClose">Enter the celebration</button>
+    </div>
+  </div>
+
   <main>
     <!-- Hero -->
     <section id="hero" class="hero">
@@ -109,7 +126,7 @@
         <p class="section-subtitle story-tagline">A love that bloomed.</p>
         <p class="section-subtitle story-intro">Our story: You don't know when love hits you—you just wake up one day thinking about nothing but holding her hand and keeping her safe.</p>
         <p class="section-subtitle story-intro">That's exactly what happened to us. Fate brought us together, and from our very first conversation, we realized we were meant for each other—like we were sent to find and heal one another.</p>
-        <div class="timeline">
+        <div class="timeline" data-stagger>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
@@ -151,7 +168,7 @@
       <div class="ethiopian-border"></div>
       <div class="container">
         <h2 class="section-title script">Bride & Groom</h2>
-        <div class="couple-grid">
+        <div class="couple-grid" data-stagger>
           <article class="couple-card groom">
             <div class="couple-photo">
               <img src="assets/wedding/groom.jpg" alt="Merhawi Girma, groom" width="800" height="1200" loading="lazy" />
@@ -188,7 +205,7 @@
         <p class="invitation-line">You're invited to our most special day.</p>
         <h2 class="section-title script">Wedding Details</h2>
         <p class="section-subtitle">April 19, 2026</p>
-        <div class="details-grid">
+        <div class="details-grid" data-stagger>
           <div class="detail-card ceremony">
             <div class="detail-icon">⛪</div>
             <h3>Ceremony</h3>
@@ -222,7 +239,7 @@
         </div>
         <div class="schedule">
           <h3 class="schedule-heading">Schedule</h3>
-          <ol class="schedule-timeline">
+          <ol class="schedule-timeline" data-stagger>
             <li class="schedule-step">
               <span class="schedule-marker" aria-hidden="true"></span>
               <div class="schedule-card">
@@ -275,10 +292,10 @@
       <div class="container gallery-container">
         <header class="gallery-header">
           <h2 class="section-title script">Gallery</h2>
-          <p class="section-subtitle gallery-lead">Our celebration in forty photographs</p>
-          <p class="gallery-hint">Tap a photo to enlarge — swipe or use the arrows to browse.</p>
+          <p class="section-subtitle gallery-lead">Our celebration in photographs</p>
+          <p class="gallery-hint">Tap a photo to enlarge — swipe to browse.</p>
         </header>
-        <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-grid" id="galleryGrid" data-stagger>
           <div class="gallery-item" data-src="assets/wedding/gallery-01.jpg"><img src="assets/wedding/gallery-01.jpg" alt="Merhawi and Koket — wedding photo 1 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
           <div class="gallery-item" data-src="assets/wedding/gallery-02.jpg"><img src="assets/wedding/gallery-02.jpg" alt="Merhawi and Koket — wedding photo 2 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
           <div class="gallery-item" data-src="assets/wedding/gallery-03.jpg"><img src="assets/wedding/gallery-03.jpg" alt="Merhawi and Koket — wedding photo 3 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
@@ -340,7 +357,7 @@
       <div class="verses-bg"></div>
       <div class="container">
         <h2 class="section-title script">Blessings & Verses</h2>
-        <div class="verses-grid">
+        <div class="verses-grid" data-stagger>
           <blockquote class="verse-card verse-featured">
             <p>"I found the one my soul loves; I held her strong in my arms."</p>
             <p class="verse-personal">My forever and always, my best friend and my gift from God—I love you so much.</p>
