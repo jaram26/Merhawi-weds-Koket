@@ -461,6 +461,7 @@
       try {
         sessionStorage.setItem(KEY, '1');
       } catch (e) {}
+      window.dispatchEvent(new CustomEvent('mk-welcome-closed'));
     }
 
     let dismissed = false;
@@ -468,9 +469,14 @@
       dismissed = !!sessionStorage.getItem(KEY);
     } catch (e) {}
     if (!dismissed) {
-      window.addEventListener('load', () => {
-        setTimeout(openModal, 2000);
-      });
+      function showWelcomeSoon() {
+        requestAnimationFrame(() => openModal());
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', showWelcomeSoon);
+      } else {
+        showWelcomeSoon();
+      }
     }
 
     closeBtn.addEventListener('click', closeModal);
@@ -478,6 +484,140 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
     });
+  }
+
+  // ---------- PWA: service worker + install prompt ----------
+  function initPwaInstall() {
+    if ('serviceWorker' in navigator) {
+      const swUrl = new URL('sw.js', window.location.href);
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register(swUrl.href).catch(() => {});
+      });
+    }
+
+    const banner = document.getElementById('pwaInstallBanner');
+    const installBtn = document.getElementById('pwaInstallBtn');
+    const dismissBtn = document.getElementById('pwaInstallDismiss');
+    const textEl = document.getElementById('pwaInstallText');
+    if (!banner || !installBtn || !dismissBtn || !textEl) return;
+
+    const DISMISS_KEY = 'mk_pwa_install_snoozed';
+    const SNOOZE_MS = 14 * 24 * 60 * 60 * 1000;
+    const WELCOME_KEY = 'mk_welcome_dismissed';
+
+    function isSnoozed() {
+      try {
+        const t = localStorage.getItem(DISMISS_KEY);
+        if (!t) return false;
+        return Date.now() - parseInt(t, 10) < SNOOZE_MS;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function snooze() {
+      try {
+        localStorage.setItem(DISMISS_KEY, String(Date.now()));
+      } catch (e) {}
+      hideBanner();
+    }
+
+    function isStandalone() {
+      return (
+        window.matchMedia('(display-mode: standalone)').matches ||
+        window.matchMedia('(display-mode: fullscreen)').matches ||
+        window.navigator.standalone === true
+      );
+    }
+
+    function welcomeAlreadyDismissedThisSession() {
+      try {
+        return !!sessionStorage.getItem(WELCOME_KEY);
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function afterWelcomeClosed(fn) {
+      if (welcomeAlreadyDismissedThisSession()) {
+        setTimeout(fn, 400);
+        return;
+      }
+      window.addEventListener('mk-welcome-closed', () => setTimeout(fn, 450), { once: true });
+    }
+
+    function hideBanner() {
+      banner.classList.remove('is-visible');
+      banner.setAttribute('aria-hidden', 'true');
+      installBtn.hidden = false;
+    }
+
+    function showBanner(mode) {
+      if (isStandalone() || isSnoozed()) return;
+      banner.dataset.mode = mode;
+      if (mode === 'ios') {
+        installBtn.hidden = true;
+        textEl.textContent =
+          'Tap Share (the square with an arrow) at the bottom of Safari, scroll down, then tap “Add to Home Screen”.';
+      } else {
+        installBtn.hidden = false;
+        textEl.textContent =
+          'Add our invitation to your home screen for one-tap access and a fuller-screen experience.';
+      }
+      banner.classList.add('is-visible');
+      banner.setAttribute('aria-hidden', 'false');
+      if (installBtn.hidden) dismissBtn.focus({ preventScroll: true });
+      else installBtn.focus({ preventScroll: true });
+    }
+
+    let deferredPrompt = null;
+    let chromiumShowScheduled = false;
+
+    function tryShowChromium() {
+      if (!deferredPrompt || isStandalone() || isSnoozed()) return;
+      showBanner('chromium');
+    }
+
+    function scheduleChromiumBanner() {
+      if (chromiumShowScheduled) return;
+      chromiumShowScheduled = true;
+      afterWelcomeClosed(tryShowChromium);
+    }
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      scheduleChromiumBanner();
+    });
+
+    window.addEventListener('appinstalled', () => {
+      deferredPrompt = null;
+      hideBanner();
+    });
+
+    function isLikelyIos() {
+      const ua = navigator.userAgent || '';
+      if (/iPad|iPhone|iPod/.test(ua)) return true;
+      return navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+    }
+
+    afterWelcomeClosed(() => {
+      setTimeout(() => {
+        if (isStandalone() || isSnoozed() || deferredPrompt) return;
+        if (!isLikelyIos()) return;
+        showBanner('ios');
+      }, 400);
+    });
+
+    installBtn.addEventListener('click', async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice.catch(() => {});
+      deferredPrompt = null;
+      hideBanner();
+    });
+
+    dismissBtn.addEventListener('click', snooze);
   }
 
   // ---------- Run all ----------
@@ -492,4 +632,5 @@
   initLyricsAccordion();
   initStaggerReveal();
   initWelcomeModal();
+  initPwaInstall();
 })();

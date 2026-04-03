@@ -93,6 +93,25 @@
     </div>
   </div>
 
+  <!-- Install app (Chrome/Edge/Android + Safari hint) -->
+  <div
+    id="pwaInstallBanner"
+    class="pwa-install-banner"
+    role="dialog"
+    aria-labelledby="pwaInstallTitle"
+    aria-describedby="pwaInstallText"
+    aria-hidden="true"
+  >
+    <div class="pwa-install-inner">
+      <p id="pwaInstallTitle" class="pwa-install-title">Install invitation</p>
+      <p id="pwaInstallText" class="pwa-install-text"></p>
+      <div class="pwa-install-actions">
+        <button type="button" class="pwa-install-btn pwa-install-btn-primary" id="pwaInstallBtn">Install app</button>
+        <button type="button" class="pwa-install-btn pwa-install-btn-ghost" id="pwaInstallDismiss">Not now</button>
+      </div>
+    </div>
+  </div>
+
   <main>
     <!-- Hero -->
     <section id="hero" class="hero">
@@ -100,8 +119,8 @@
         <img src="assets/hero-couple.png" alt="Merhawi and Koket" />
         <div class="hero-overlay"></div>
       </div>
+      <p class="hero-married">We're Getting Married</p>
       <div class="hero-content">
-        <p class="hero-married">We're Getting Married</p>
         <h1 class="hero-names">Merhawi <span class="heart-char">❤</span> Koket</h1>
         <p class="hero-date">April 19, 2026</p>
         <p class="hero-tagline">Two souls, one journey, forever</p>
