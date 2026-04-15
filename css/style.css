@@ -1824,21 +1824,28 @@ a.song-toggle-link {
   justify-content: center;
   margin: 1.5rem 0;
 }
-.qr-placeholder {
-  width: 180px;
-  height: 180px;
+.qr-figure {
+  margin: 0;
+  width: min(260px, 90vw);
   background: var(--white);
-  border: 3px dashed var(--gold);
+  border: 1px solid rgba(201, 162, 39, 0.25);
   border-radius: var(--radius);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: var(--text-soft);
+  padding: 0.75rem;
+  box-shadow: 0 10px 28px var(--shadow);
 }
-.qr-hint { font-size: 0.75rem; margin: 0.5rem 0 0; text-align: center; }
+.qr-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+.qr-caption {
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  text-align: center;
+}
 .gifts-note { text-align: center; color: var(--text-soft); font-size: 0.9rem; margin: 0; }
 
 /* ========== Legal (Terms & Privacy) ========== */
