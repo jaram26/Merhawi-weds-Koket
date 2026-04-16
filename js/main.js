@@ -183,9 +183,14 @@
       return `merhawi-koket-gallery-${String(index + 1).padStart(2, '0')}.jpg`;
     }
 
+    function galleryHdSrc(index) {
+      const n = String(index + 1).padStart(2, '0');
+      return `assets/wedding/hd/gallery-${n}.jpg`;
+    }
+
     function updateDownloadLink(src, index) {
       if (!downloadLink || !src) return;
-      downloadLink.href = src;
+      downloadLink.href = galleryHdSrc(index);
       downloadLink.download = galleryFilename(index);
       downloadLink.removeAttribute('hidden');
     }
@@ -195,7 +200,7 @@
       if (src) {
         const dl = document.createElement('a');
         dl.className = 'gallery-item-download';
-        dl.href = src;
+        dl.href = galleryHdSrc(index);
         dl.download = galleryFilename(index);
         dl.setAttribute('aria-label', `Download photo ${index + 1}`);
         dl.innerHTML =

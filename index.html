@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,26 +8,16 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.json" />
-  <link rel="apple-touch-icon" href="assets/hero-couple.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <title>Merhawi & Koket — April 19, 2026</title>
   <meta name="description" content="Join us in celebrating the wedding of Merhawi Girma and Koket Mesfin — April 19, 2026" />
+  <link rel="preload" as="image" href="assets/hero-couple.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/cbe-qr.png" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <script>
-    (function () {
-      var narrow = typeof window.matchMedia === 'function' && window.matchMedia('(max-width: 768px)').matches;
-      var max = narrow ? 10 : 40;
-      for (var i = 1; i <= max; i += 1) {
-        var link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = 'assets/wedding/gallery-' + String(i).padStart(2, '0') + '.jpg';
-        document.head.appendChild(link);
-      }
-    })();
-  </script>
 </head>
 <body>
   <!-- Loading Screen -->
@@ -46,14 +36,14 @@
 
   <!-- Floating Hearts -->
   <div class="floating-hearts" aria-hidden="true">
-    <span class="heart">♥</span>
-    <span class="heart">♥</span>
-    <span class="heart">♥</span>
-    <span class="heart">♥</span>
-    <span class="heart">♥</span>
-    <span class="petal">🌸</span>
-    <span class="petal">🌷</span>
-    <span class="petal">✨</span>
+    <span class="heart">â™¥</span>
+    <span class="heart">â™¥</span>
+    <span class="heart">â™¥</span>
+    <span class="heart">â™¥</span>
+    <span class="heart">â™¥</span>
+    <span class="petal">ðŸŒ¸</span>
+    <span class="petal">ðŸŒ·</span>
+    <span class="petal">âœ¨</span>
   </div>
 
   <!-- Navigation -->
@@ -74,7 +64,7 @@
         <li><a href="#gifts">Gifts</a></li>
       </ul>
       <a href="songs.html" class="song-toggle song-toggle-link" aria-label="Open holy songs and lyrics">
-        <span class="song-icon">♪</span>
+        <span class="song-icon">â™ª</span>
         <span class="song-label">Songs</span>
       </a>
     </div>
@@ -88,7 +78,7 @@
       <p class="welcome-modal-eyebrow">Merhawi &amp; Koket</p>
       <h2 id="welcomeModalTitle" class="welcome-modal-title script">Save the date</h2>
       <p class="welcome-modal-date">April 19, 2026</p>
-      <p class="welcome-modal-text">We’re so glad you’re here. Scroll to explore our story, details, and RSVP.</p>
+      <p class="welcome-modal-text">Weâ€™re so glad youâ€™re here. Scroll to explore our story, details, and RSVP.</p>
       <button type="button" class="welcome-modal-btn" id="welcomeModalClose">Enter the celebration</button>
     </div>
   </div>
@@ -116,12 +106,12 @@
     <!-- Hero -->
     <section id="hero" class="hero">
       <div class="hero-bg">
-        <img src="assets/hero-couple.png" alt="Merhawi and Koket" />
+        <img src="assets/hero-couple.png" alt="Merhawi and Koket" loading="eager" decoding="async" fetchpriority="high" />
         <div class="hero-overlay"></div>
       </div>
       <p class="hero-married">We're Getting Married</p>
       <div class="hero-content">
-        <h1 class="hero-names">Merhawi <span class="heart-char">❤</span> Koket</h1>
+        <h1 class="hero-names">Merhawi <span class="heart-char">â¤</span> Koket</h1>
         <p class="hero-date">April 19, 2026</p>
         <p class="hero-tagline">Two souls, one journey, forever</p>
         <p class="hero-verse">"I found the one my soul loves." <cite>— Song of Solomon 3:4</cite></p>
@@ -133,7 +123,7 @@
         </div>
         <a href="#story" class="scroll-indicator">
           <span>Scroll down</span>
-          <span class="scroll-arrow" aria-hidden="true">↓</span>
+          <span class="scroll-arrow" aria-hidden="true">â†“</span>
         </a>
       </div>
     </section>
@@ -198,7 +188,7 @@
               <p>Groom. A die-hard fan of Koket (his whole world and a gift from St. Mary), a true coffee lover, and someone who listens deeply and is always open to mind-opening conversations, especially health related.</p>
             </div>
           </article>
-          <div class="couple-heart">❤</div>
+          <div class="couple-heart">â¤</div>
           <article class="couple-card bride">
             <div class="couple-photo">
               <img src="assets/wedding/bride.jpg" alt="Koket Mesfin, bride" width="800" height="1200" loading="lazy" />
@@ -226,27 +216,32 @@
         <p class="section-subtitle">April 19, 2026</p>
         <div class="details-grid" data-stagger>
           <div class="detail-card ceremony">
-            <div class="detail-icon">⛪</div>
+            <div class="detail-icon">â›ª</div>
             <h3>Ceremony</h3>
             <p>The church ceremony will begin at 4:00 AM (10:00 LT) at Keranyo Medhanialem Church.</p>
           </div>
           <div class="detail-card reception">
-            <div class="detail-icon">🎉</div>
+            <div class="detail-icon">ðŸŽ‰</div>
             <h3>Reception</h3>
             <p>Lunch will be at 1:00 PM (7:00 LT), followed by holy songs and praising God's work and miracles.</p>
+          </div>
+          <div class="detail-card travel">
+            <div class="detail-icon">ðŸš†</div>
+            <h3>Train</h3>
+            <p>If youâ€™re coming by train, the nearest station to the hall is <strong>Nifas Silk 2</strong>.</p>
           </div>
         </div>
         <div class="venue-block">
           <h3>Venue</h3>
           <p class="venue-name">Sheger Feleke Wedding Hall</p>
           <p class="venue-address">At Nefas Silk Polytechnic College, Next to Gotera Highway</p>
-          <a class="venue-directions-btn" href="https://maps.app.goo.gl/FAK6T4YXjXzydpFm8" target="_blank" rel="noopener noreferrer" title="Get directions on Google Maps">
+          <a class="venue-directions-btn venue-directions-btn--attention" href="https://maps.app.goo.gl/FAK6T4YXjXzydpFm8" target="_blank" rel="noopener noreferrer" title="Get directions on Google Maps">
             Get directions
           </a>
           <div class="venue-map-wrap">
             <a class="venue-map-link" href="https://maps.app.goo.gl/FAK6T4YXjXzydpFm8" target="_blank" rel="noopener noreferrer" title="Open in Google Maps to get directions">
               <div class="venue-map" id="venueMap">
-                <iframe src="https://www.google.com/maps?q=Sheger+Feleke+Wedding+Hall+Gotera+Nefas+Silk+Polytechnic+College&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Wedding venue – click to open in Google Maps for directions"></iframe>
+                <iframe src="https://www.google.com/maps?q=Sheger+Feleke+Wedding+Hall+Gotera+Nefas+Silk+Polytechnic+College&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Wedding venue â€“ click to open in Google Maps for directions"></iframe>
               </div>
               <span class="venue-map-overlay">Click to open in Google Maps for directions</span>
             </a>
@@ -276,15 +271,15 @@
             <li class="schedule-step">
               <span class="schedule-marker" aria-hidden="true"></span>
               <div class="schedule-card">
-                <time class="schedule-time" datetime="09:00">9:00–10:00 AM</time>
+                <time class="schedule-time" datetime="09:00">9:00â€“10:00 AM</time>
                 <p class="schedule-desc">Singing and a light breakfast.</p>
               </div>
             </li>
             <li class="schedule-step">
               <span class="schedule-marker" aria-hidden="true"></span>
               <div class="schedule-card">
-                <time class="schedule-time" datetime="10:00">10:00 AM–12:00 PM</time>
-                <p class="schedule-desc">Photography session at St. Silassie Church.</p>
+                <time class="schedule-time" datetime="10:00">10:00 AMâ€“12:00 PM</time>
+                <p class="schedule-desc">Photography session at Total St. Silassie Church.</p>
               </div>
             </li>
             <li class="schedule-step">
@@ -315,47 +310,48 @@
           <p class="gallery-hint">Tap a photo to enlarge — swipe to browse.</p>
         </header>
         <div class="gallery-grid" id="galleryGrid" data-stagger>
-          <div class="gallery-item" data-src="assets/wedding/gallery-01.jpg"><img src="assets/wedding/gallery-01.jpg" alt="Merhawi and Koket — wedding photo 1 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-02.jpg"><img src="assets/wedding/gallery-02.jpg" alt="Merhawi and Koket — wedding photo 2 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-03.jpg"><img src="assets/wedding/gallery-03.jpg" alt="Merhawi and Koket — wedding photo 3 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-04.jpg"><img src="assets/wedding/gallery-04.jpg" alt="Merhawi and Koket — wedding photo 4 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-05.jpg"><img src="assets/wedding/gallery-05.jpg" alt="Merhawi and Koket — wedding photo 5 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-06.jpg"><img src="assets/wedding/gallery-06.jpg" alt="Merhawi and Koket — wedding photo 6 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-07.jpg"><img src="assets/wedding/gallery-07.jpg" alt="Merhawi and Koket — wedding photo 7 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-08.jpg"><img src="assets/wedding/gallery-08.jpg" alt="Merhawi and Koket — wedding photo 8 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-09.jpg"><img src="assets/wedding/gallery-09.jpg" alt="Merhawi and Koket — wedding photo 9 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-10.jpg"><img src="assets/wedding/gallery-10.jpg" alt="Merhawi and Koket — wedding photo 10 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-11.jpg"><img src="assets/wedding/gallery-11.jpg" alt="Merhawi and Koket — wedding photo 11 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-12.jpg"><img src="assets/wedding/gallery-12.jpg" alt="Merhawi and Koket — wedding photo 12 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-13.jpg"><img src="assets/wedding/gallery-13.jpg" alt="Merhawi and Koket — wedding photo 13 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-14.jpg"><img src="assets/wedding/gallery-14.jpg" alt="Merhawi and Koket — wedding photo 14 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-15.jpg"><img src="assets/wedding/gallery-15.jpg" alt="Merhawi and Koket — wedding photo 15 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-16.jpg"><img src="assets/wedding/gallery-16.jpg" alt="Merhawi and Koket — wedding photo 16 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-17.jpg"><img src="assets/wedding/gallery-17.jpg" alt="Merhawi and Koket — wedding photo 17 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-18.jpg"><img src="assets/wedding/gallery-18.jpg" alt="Merhawi and Koket — wedding photo 18 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-19.jpg"><img src="assets/wedding/gallery-19.jpg" alt="Merhawi and Koket — wedding photo 19 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-20.jpg"><img src="assets/wedding/gallery-20.jpg" alt="Merhawi and Koket — wedding photo 20 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-21.jpg"><img src="assets/wedding/gallery-21.jpg" alt="Merhawi and Koket — wedding photo 21 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-22.jpg"><img src="assets/wedding/gallery-22.jpg" alt="Merhawi and Koket — wedding photo 22 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-23.jpg"><img src="assets/wedding/gallery-23.jpg" alt="Merhawi and Koket — wedding photo 23 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-24.jpg"><img src="assets/wedding/gallery-24.jpg" alt="Merhawi and Koket — wedding photo 24 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-25.jpg"><img src="assets/wedding/gallery-25.jpg" alt="Merhawi and Koket — wedding photo 25 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-26.jpg"><img src="assets/wedding/gallery-26.jpg" alt="Merhawi and Koket — wedding photo 26 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-27.jpg"><img src="assets/wedding/gallery-27.jpg" alt="Merhawi and Koket — wedding photo 27 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-28.jpg"><img src="assets/wedding/gallery-28.jpg" alt="Merhawi and Koket — wedding photo 28 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-29.jpg"><img src="assets/wedding/gallery-29.jpg" alt="Merhawi and Koket — wedding photo 29 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-30.jpg"><img src="assets/wedding/gallery-30.jpg" alt="Merhawi and Koket — wedding photo 30 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-31.jpg"><img src="assets/wedding/gallery-31.jpg" alt="Merhawi and Koket — wedding photo 31 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-32.jpg"><img src="assets/wedding/gallery-32.jpg" alt="Merhawi and Koket — wedding photo 32 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-33.jpg"><img src="assets/wedding/gallery-33.jpg" alt="Merhawi and Koket — wedding photo 33 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-34.jpg"><img src="assets/wedding/gallery-34.jpg" alt="Merhawi and Koket — wedding photo 34 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-35.jpg"><img src="assets/wedding/gallery-35.jpg" alt="Merhawi and Koket — wedding photo 35 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-36.jpg"><img src="assets/wedding/gallery-36.jpg" alt="Merhawi and Koket — wedding photo 36 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-37.jpg"><img src="assets/wedding/gallery-37.jpg" alt="Merhawi and Koket — wedding photo 37 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-38.jpg"><img src="assets/wedding/gallery-38.jpg" alt="Merhawi and Koket — wedding photo 38 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-39.jpg"><img src="assets/wedding/gallery-39.jpg" alt="Merhawi and Koket — wedding photo 39 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
-          <div class="gallery-item" data-src="assets/wedding/gallery-40.jpg"><img src="assets/wedding/gallery-40.jpg" alt="Merhawi and Koket — wedding photo 40 of 40" width="2000" height="3000" loading="eager" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-01.jpg"><img src="assets/wedding/gallery-01.jpg" alt="Merhawi and Koket — wedding photo 1 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-02.jpg"><img src="assets/wedding/gallery-02.jpg" alt="Merhawi and Koket — wedding photo 2 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-03.jpg"><img src="assets/wedding/gallery-03.jpg" alt="Merhawi and Koket — wedding photo 3 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-04.jpg"><img src="assets/wedding/gallery-04.jpg" alt="Merhawi and Koket — wedding photo 4 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-05.jpg"><img src="assets/wedding/gallery-05.jpg" alt="Merhawi and Koket — wedding photo 5 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-06.jpg"><img src="assets/wedding/gallery-06.jpg" alt="Merhawi and Koket — wedding photo 6 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-07.jpg"><img src="assets/wedding/gallery-07.jpg" alt="Merhawi and Koket — wedding photo 7 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-08.jpg"><img src="assets/wedding/gallery-08.jpg" alt="Merhawi and Koket — wedding photo 8 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-09.jpg"><img src="assets/wedding/gallery-09.jpg" alt="Merhawi and Koket — wedding photo 9 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-10.jpg"><img src="assets/wedding/gallery-10.jpg" alt="Merhawi and Koket — wedding photo 10 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-11.jpg"><img src="assets/wedding/gallery-11.jpg" alt="Merhawi and Koket — wedding photo 11 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-12.jpg"><img src="assets/wedding/gallery-12.jpg" alt="Merhawi and Koket — wedding photo 12 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-13.jpg"><img src="assets/wedding/gallery-13.jpg" alt="Merhawi and Koket — wedding photo 13 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-14.jpg"><img src="assets/wedding/gallery-14.jpg" alt="Merhawi and Koket — wedding photo 14 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-15.jpg"><img src="assets/wedding/gallery-15.jpg" alt="Merhawi and Koket — wedding photo 15 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-16.jpg"><img src="assets/wedding/gallery-16.jpg" alt="Merhawi and Koket — wedding photo 16 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-17.jpg"><img src="assets/wedding/gallery-17.jpg" alt="Merhawi and Koket — wedding photo 17 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-18.jpg"><img src="assets/wedding/gallery-18.jpg" alt="Merhawi and Koket — wedding photo 18 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-19.jpg"><img src="assets/wedding/gallery-19.jpg" alt="Merhawi and Koket — wedding photo 19 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-20.jpg"><img src="assets/wedding/gallery-20.jpg" alt="Merhawi and Koket — wedding photo 20 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-21.jpg"><img src="assets/wedding/gallery-21.jpg" alt="Merhawi and Koket — wedding photo 21 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-22.jpg"><img src="assets/wedding/gallery-22.jpg" alt="Merhawi and Koket — wedding photo 22 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-23.jpg"><img src="assets/wedding/gallery-23.jpg" alt="Merhawi and Koket — wedding photo 23 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-24.jpg"><img src="assets/wedding/gallery-24.jpg" alt="Merhawi and Koket — wedding photo 24 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-25.jpg"><img src="assets/wedding/gallery-25.jpg" alt="Merhawi and Koket — wedding photo 25 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-26.jpg"><img src="assets/wedding/gallery-26.jpg" alt="Merhawi and Koket — wedding photo 26 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-27.jpg"><img src="assets/wedding/gallery-27.jpg" alt="Merhawi and Koket — wedding photo 27 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-28.jpg"><img src="assets/wedding/gallery-28.jpg" alt="Merhawi and Koket — wedding photo 28 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-29.jpg"><img src="assets/wedding/gallery-29.jpg" alt="Merhawi and Koket — wedding photo 29 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-30.jpg"><img src="assets/wedding/gallery-30.jpg" alt="Merhawi and Koket — wedding photo 30 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-31.jpg"><img src="assets/wedding/gallery-31.jpg" alt="Merhawi and Koket — wedding photo 31 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-32.jpg"><img src="assets/wedding/gallery-32.jpg" alt="Merhawi and Koket — wedding photo 32 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-33.jpg"><img src="assets/wedding/gallery-33.jpg" alt="Merhawi and Koket — wedding photo 33 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-34.jpg"><img src="assets/wedding/gallery-34.jpg" alt="Merhawi and Koket — wedding photo 34 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-35.jpg"><img src="assets/wedding/gallery-35.jpg" alt="Merhawi and Koket — wedding photo 35 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-36.jpg"><img src="assets/wedding/gallery-36.jpg" alt="Merhawi and Koket — wedding photo 36 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-37.jpg"><img src="assets/wedding/gallery-37.jpg" alt="Merhawi and Koket — wedding photo 37 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-38.jpg"><img src="assets/wedding/gallery-38.jpg" alt="Merhawi and Koket — wedding photo 38 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-39.jpg"><img src="assets/wedding/gallery-39.jpg" alt="Merhawi and Koket — wedding photo 39 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item" data-src="assets/wedding/gallery-40.jpg"><img src="assets/wedding/gallery-40.jpg" alt="Merhawi and Koket — wedding photo 40 of 40" width="2000" height="3000" loading="lazy" decoding="async" /></div>
         </div>
+        <p class="gallery-note">More photos (including the event-day photos) will be uploaded in the near future. Please check back soon.</p>
       </div>
     </section>
 
@@ -363,8 +359,8 @@
     <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Wedding photo">
       <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close gallery">×</button>
       <a id="lightboxDownload" class="lightbox-download" href="#" download hidden>Download photo</a>
-      <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">‹</button>
-      <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">›</button>
+      <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">â€¹</button>
+      <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">â€º</button>
       <div class="lightbox-body">
         <img src="" alt="" id="lightboxImg" />
         <p class="lightbox-counter" id="lightboxCounter" aria-live="polite"></p>
@@ -384,11 +380,11 @@
           </blockquote>
           <blockquote class="verse-card">
             <p>"Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered, it keeps no record of wrongs. Love does not delight in evil but rejoices with the truth. It always protects, always trusts, always hopes, always perseveres."</p>
-            <cite>— 1 Corinthians 13:4–7</cite>
+            <cite>— 1 Corinthians 13:4â€“7</cite>
           </blockquote>
           <blockquote class="verse-card">
             <p>"Two are better than one... If either of them falls down, one can help the other up. Though one may be overpowered, two can defend themselves. A cord of three strands is not quickly broken."</p>
-            <cite>— Ecclesiastes 4:9–12</cite>
+            <cite>— Ecclesiastes 4:9â€“12</cite>
           </blockquote>
           <blockquote class="verse-card">
             <p>"That is why a man leaves his father and mother and is united to his wife, and they become one flesh."</p>
@@ -404,7 +400,7 @@
         <h2 class="section-title script">RSVP</h2>
         <p class="section-subtitle">Please let us know if you'll join our celebration</p>
         <p class="rsvp-hope">We hope to see you there!</p>
-        <!-- Google Apps Script Web App URL (Deploy → Web app → copy URL ending in /exec) -->
+        <!-- Google Apps Script Web App URL (Deploy â†’ Web app â†’ copy URL ending in /exec) -->
         <form
           id="rsvpForm"
           class="rsvp-form"
@@ -435,7 +431,7 @@
         </form>
         <p id="rsvpError" class="rsvp-error" role="alert" hidden></p>
         <div id="rsvpSuccess" class="rsvp-success" hidden>
-          <span class="success-icon">✓</span>
+          <span class="success-icon">âœ“</span>
           <p>Thank you! Your response has been received.</p>
         </div>
       </div>
@@ -448,7 +444,7 @@
         <p class="gifts-intro">Your presence is the greatest gift. If you wish to honor us with a gift, we welcome contributions toward our future together.</p>
         <div class="gifts-qr">
           <figure class="qr-figure">
-            <img class="qr-img" src="assets/cbe-qr.png" alt="CBE bank transfer QR code" loading="lazy" decoding="async" />
+            <img class="qr-img" src="assets/cbe-qr.png" alt="CBE bank transfer QR code" loading="eager" decoding="async" fetchpriority="high" />
             <figcaption class="qr-caption">CBE bank transfer</figcaption>
           </figure>
         </div>
@@ -480,17 +476,13 @@
         <div class="footer-contact">
           <p>Contact: <a href="mailto:merawedskok@gmail.com">merawedskok@gmail.com</a></p>
         </div>
-        <div class="footer-social">
-          <a href="#" aria-label="Instagram">Instagram</a>
-          <a href="#" aria-label="Facebook">Facebook</a>
-        </div>
         <div class="footer-legal">
           <a href="#terms">Terms &amp; Support</a>
-          <span class="footer-legal-sep">·</span>
+          <span class="footer-legal-sep">Â·</span>
           <a href="#privacy">Privacy Policy</a>
         </div>
         <p class="footer-copy">With love, M & K</p>
-        <p class="footer-yaros">© 2026 YAROS. All rights reserved.</p>
+        <p class="footer-yaros">Â© 2026 YAROS. All rights reserved.</p>
       </div>
     </footer>
   </main>
@@ -498,3 +490,4 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+
